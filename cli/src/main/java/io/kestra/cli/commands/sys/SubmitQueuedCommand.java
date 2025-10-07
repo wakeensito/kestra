@@ -51,7 +51,7 @@ public class SubmitQueuedCommand extends AbstractCommand {
             var executionQueuedStorage = applicationContext.getBean(AbstractJdbcExecutionQueuedStorage.class);
 
             for (ExecutionQueued queued : executionQueuedStorage.getAllForAllTenants()) {
-                executionQueuedStorage.pop(queued.getTenantId(), queued.getNamespace(), queued.getFlowId(), throwConsumer(execution -> executionQueue.emit(execution.withState(State.Type.CREATED))));
+//                executionQueuedStorage.pop(queued.getTenantId(), queued.getNamespace(), queued.getFlowId(), throwConsumer(execution -> executionQueue.emit(execution.withState(State.Type.CREATED))));
                 cpt++;
             }
         }
